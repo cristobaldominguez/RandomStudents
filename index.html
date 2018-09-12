@@ -17,6 +17,7 @@
 			<th class="col-md-4 text-center">Presentación</th>
 		</tr>
 	</table>
+	<p class="date"></p>
 
 	<!-- this is where we put our custom functions -->
 	<script src="assets/js/functions.js"></script>
@@ -24,7 +25,26 @@
 		RandomStudents.init({
 			date: new Date(2019, 4, 5, 13),
 			increment: 10,
-			selector: '.slideshow'
+			students: {
+				first_ones: [
+					'Alumno 01',
+					'Alumno 02',
+				],
+				random_ones: [
+					'Alumno Random 01',
+					'Alumno Random 02',
+					'Alumno Random 03',
+					'Alumno Random 04',
+					'Alumno Random 05',
+					'Alumno Random 06',
+					'Alumno Random 07',
+					'Alumno Random 08',
+				],
+				last_ones: [
+					'Alumno 03',
+					'Alumno 04',
+				]
+			}
 		})
 	</script>
 </body>

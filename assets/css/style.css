@@ -60,13 +60,16 @@ article {
 body { 
   align-items: center;
   display: flex;
+  flex-direction: column;
   font-family: 'Open Sans', sans-serif;
   height: 100vh;
   justify-content: center;
 }
 
+.date,
 .table {
   max-width: 500px;
+  margin-bottom: 0;
 }
 
 .table th {
@@ -74,6 +77,15 @@ body {
   font-size: 1.3em;
 }
 
+.date {
+  width: 100%;
+  text-align: right;
+  color: #ccc;
+}
+
+.date::first-letter {
+  text-transform: uppercase;
+}
 
 
 

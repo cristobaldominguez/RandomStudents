@@ -4,45 +4,41 @@ const RandomStudents = (() => {
 	const state = {
 		date: new Date(2019, 0, 1, 13),		// Month number is 0 based
 		increment: 10,						// Increment in minutes
-		selector: '.slideshow'				// 
+		selector: '.slideshow',				//
+		date_target: '.date',
+		students: {
+			first_ones: [
+				'Alumno 01',
+			],
+			random_ones: [
+				'Alumno Random 01',
+				'Alumno Random 02',
+			],
+			last_ones: [
+				'Alumno 02',
+			]
+		}
 	}
 
-	const students = {
-		first_ones: [
-			'Alumno 01',
-			'Alumno 02',
-		],
-		random_ones: [
-			'Alumno Random 01',
-			'Alumno Random 02',
-			'Alumno Random 03',
-			'Alumno Random 04',
-			'Alumno Random 05',
-			'Alumno Random 06',
-			'Alumno Random 07',
-			'Alumno Random 08',
-		],
-		last_ones: [
-			'Alumno 03',
-			'Alumno 04',
-		]
-
-	}
 
 	// CacheDom
 	const slideshow = document.querySelector(state.selector)
+	const date_html = document.querySelector(state.date_target)
 	const html = slideshow.innerHTML
 	
 	// Add init function
 	function init(stt) {
-		this.state = {...this.state, ...stt}
-		const students_html = [...students.first_ones, ...students.random_ones.random(), ...students.last_ones]
+		state.students = { ...state.students, ...stt.students }
+		this.state = { ...this.state, ...stt }
+		const students_html = [...state.students.first_ones, ...state.students.random_ones.random(), ...state.students.last_ones]
 							  .map(obj_generator)
 							  .map(el => create_table(el))
 							  .join('')
 
 		slideshow.innerHTML = html + students_html
+		date_html.innerHTML = this.state.date.toLocaleDateString('es-CL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 	}
+	
 
 	// Functions
 	Array.prototype.random = function() {
